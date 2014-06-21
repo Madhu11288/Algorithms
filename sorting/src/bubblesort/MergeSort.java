@@ -3,13 +3,17 @@ package bubblesort;
 public class MergeSort {
 
 	public static void main(String[] args) {
-		int[] numbers = { 4, 2, 8, 1 , 6, 3 };
-		mergesort(numbers);
+		int[] numbers = { 4, 2, 8, 1, 6, 3 };
+		int[] result = mergesort(numbers);
+		for (int l = 0; l < result.length; l++) {
+
+			System.out.println(" " + result[l]);
+		}
 	}
 
 	private static int[] mergesort(int[] numbers) {
 		int size = numbers.length;
-		int[] left = new int[size/2], right = new int[size-left.length], result= new int[size];
+		int[] left = new int[size / 2], right = new int[size - left.length], result = new int[size];
 		if (size < 2) {
 			return numbers;
 		}
@@ -19,7 +23,7 @@ public class MergeSort {
 
 		}
 		for (int i = mid; i < size; i++) {
-			right[i-mid] = numbers[i];
+			right[i - mid] = numbers[i];
 
 		}
 		left = mergesort(left);
@@ -32,8 +36,6 @@ public class MergeSort {
 	private static int[] merge(int[] left, int[] right, int[] numbers) {
 		int i = 0, j = 0, k = 0;
 
-		
-	
 		while (i < left.length && j < right.length) {
 			if (left[i] < right[j]) {
 				numbers[k] = left[i];
@@ -54,10 +56,6 @@ public class MergeSort {
 			numbers[k] = right[j];
 			j++;
 			k++;
-		}
-		for (int l = 0; l < numbers.length; l++) {
-			
-			System.out.println(" " + numbers[l]);
 		}
 		return numbers;
 
